@@ -1,0 +1,20 @@
+Installation:
+	git clone git://github.com/samharad/dotfiles.git ~/dotfiles
+
+Create symlinks:
+	ln -s ~/dotfiles/bashrc ~/.bashrc
+	ln -s ~/dotfiles/bash_profile ~/.bash_profile
+	ln -s ~/dotfiles/.vim ~/.vim
+	ln -s ~/dotfiles/.vim/vimrc ~/.vimrc
+	ln -s ~/dotfiles/.ssh ~/.ssh
+
+To install a plugin initially:
+	cd .vim
+	git submodule add <github link> bundle/<plugin name>
+
+To get plugins:
+	cd .vim/bundles
+	git submodule init
+	git submodule upfate
+	
+
