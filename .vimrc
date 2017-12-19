@@ -1,8 +1,6 @@
 " To disable a plugin, add it's bundle name to the following list
-" YCM and airline are discouraged by #vim... as are Syntastic, gundo, nerdtree
-" Nerdtree may have been interdering with bd command
-" Syntastic is giviner messages to consl
-let g:pathogen_blacklist = ["YouCompleteMe", "vim-airline", "nerdtree", "syntastic"]
+" YCM and airline are discouraged by #vim... as are Syntastic, gundo, nerdtree...
+"let g:pathogen_blacklist = ["YouCompleteMe", "vim-airline", "nerdtree", "syntastic"]
 call pathogen#infect()
 
 filetype plugin indent on
@@ -10,9 +8,11 @@ filetype plugin indent on
 " Easier window switching
 " :Q and :W and :WQ and :Wq should all work
 " Make sure the zj, zk, other variants are remapped to zk and zl... or find better alternative
+
 " Display cat on open
 autocmd VimEnter * echo ">^.^<"
-set statusline=%f\ %m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+
+"set statusline=%f\ %m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 
 " Changes spaces to tabs; useful to convert 2-space 'tabs' to tabs, then to 4-space 'tabs'
 " Call by selecting all, then :SuperRetab 2, or whatever number of spaces currently used
@@ -161,6 +161,13 @@ autocmd Filetype c setlocal ts=4 sts=4 sw=4 expandtab
 " }}}
 
 " Plugin settings ---------------------------------------------------------- {{{
+" Colorstepper ------------------------------------------------------------- {{{
+" ColorStepper Keys
+nmap <F7> <Plug>ColorstepPrev
+nmap <F9> <Plug>ColorstepNext
+nmap <S-F9> <Plug>ColorstepReload
+" TODO should have play button make it the default colorscheme
+" }}}
 " NERDCommenter ------------------------------------------------------------ {{{
 let g:NERDCustomDelimiters = { 'html': { 'left': '<!--','right': '-->' } }
 " }}}
@@ -195,6 +202,7 @@ let g:syntastic_check_on_wq = 0
 "let g:syntastic_loc_list_height = 5
 " }}}
 " }}}
+
 
 
 " Fold on open
