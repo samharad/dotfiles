@@ -22,4 +22,4 @@ cd ${BASEDIR}/.vim
 git submodule update --init
 
 
-source .macos
+source ${BASEDIR}/.macos
