@@ -4,6 +4,7 @@
 call pathogen#infect()
 
 filetype plugin indent on
+
 " TODO
 " Easier window switching
 " :Q and :W and :WQ and :Wq should all work
