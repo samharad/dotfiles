@@ -23,3 +23,9 @@ git submodule update --init
 
 
 source .macos
+
+
+# TODO
+# Need lastpass
+# Need a bashrc to go with zshrc
+# Need same aliases
