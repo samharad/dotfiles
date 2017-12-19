@@ -207,4 +207,4 @@ let g:syntastic_check_on_wq = 0
 
 
 " Fold on open
-" vim: foldmethod=marker foldlevel=0
+" vim: set foldmarker={{{,}}} foldmethod=marker foldlevel=0 :
