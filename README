@@ -11,6 +11,6 @@ To install a plugin initially:
 To get plugins:
 	cd .vim/bundles
 	git submodule init
-	git submodule upfate
+	git submodule update
 	
 

@@ -1,6 +1,7 @@
 " To disable a plugin, add it's bundle name to the following list
 " YCM and airline are discouraged by #vim... as are Syntastic, gundo, nerdtree...
 "let g:pathogen_blacklist = ["YouCompleteMe", "vim-airline", "nerdtree", "syntastic"]
+let g:pathogen_blacklist = ["syntastic"]
 call pathogen#infect()
 
 filetype plugin indent on
@@ -9,6 +10,9 @@ filetype plugin indent on
 " Easier window switching
 " :Q and :W and :WQ and :Wq should all work
 " Make sure the zj, zk, other variants are remapped to zk and zl... or find better alternative
+cnoreabbrev W w
+cnoreabbrev Wq wq
+cnoreabbrev WQ wq
 
 " Display cat on open
 autocmd VimEnter * echo ">^.^<"
@@ -46,7 +50,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " }}}
 
 " Colors ------------------------------------------------------------------- {{{
-colorscheme darkBlue 
+colorscheme slate
 " }}}
 
 " Folding ------------------------------------------------------------------ {{{
@@ -101,16 +105,16 @@ set backspace=indent,eol,start " backspace behave as expected
 nnoremap <leader><space> :nohlsearch<CR> 
 
 " toggle between number and relativenumber
-function! ToggleNumber()
-        if(&relativenumber == 1)
-                set norelativenumber
-                set number
-        else
-                set relativenumber
-        endif
-endfunc
+"function! ToggleNumber()
+        "if(&relativenumber == 1)
+                "set norelativenumber
+                "set number
+        "else
+                "set relativenumber
+        "endif
+"endfunc
 " maps ToggleNumber() to <Ctrl-n>
-nnoremap <C-n> :call ToggleNumber()<CR>
+"nnoremap <C-n> :call ToggleNumber()<CR>
 
 " After yanking, go to the last character yanked
 vmap y y`]
@@ -202,9 +206,19 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "let g:syntastic_loc_list_height = 5
 " }}}
+" Vim-latex ---------------------------------------------------------------- {{{
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+" }}}
 " }}}
 
 
 
 " Fold on open
-" vim: foldmethod=marker foldlevel=0
+" vim: set foldmarker={{{,}}} foldmethod=marker foldlevel=0 :

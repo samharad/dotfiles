@@ -60,6 +60,10 @@ source $ZSH/oh-my-zsh.sh
 unsetopt RM_STAR_SILENT # prompt before rm-ing with *
 
 # ALIASES
+alias rm='safe-rm'
+
+alias prp='pipenv run python'
+
 alias t='python ~/t-task-manager/t.py --task-dir ~/tasks --list tasks'
 alias cl='clear && l'
 alias l='ls -aH' # size, show type, human readable
@@ -122,3 +126,5 @@ source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:/Users/adamsam/Library/Python/2.7/bin" # for pipenv
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/opt/intel/compilers_and_libraries/mac/mkl/lib
+
