@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+name=$(basename "$0")
+
+usage=$'[-ht] [-L n] [directory]
+
+Displays .desc files.
+
+Options:
+  -h     display this message
+  -t     recursively display the file tree
+  -L     when used with the -t flag, specifies a recursion depth level
+
+TODO:
+  * In tree view, improve handling of multiline descriptions
+'
+
+help="$name $usage"
+
+desc() {
+  tFlag=
+  LDepth=99
+  while getopts "htL:" opt; do
+    case $opt in
+      t) tFlag=true ;;
+
+      L) LDepth="$OPTARG" ;;
+
+      h) echo "$help"
+         return 0
+    esac
+  done
+
+  # Ensure the remaining arguments (operands) live in $@
+  shift $((OPTIND - 1))
+
+  if [ "$#" -gt 1 ]; then
+    echo "Cannot specify more than one target."
+    return 1
+  fi
+
+  # Target is that specified, else the working dir
+  target="${@:-.}"
+
+  if [ "$tFlag" = "true" ]; then
+    tree -fi -L $LDepth $target \
+      |  xargs -I _ sh -c 'echo / $(desc "_")' \
+      | paste -d ' ' <(tree -L $LDepth $target) - \
+      | column -t -s '/'
+    return 0
+  fi
+
+  file=.desc
+  full_path=$target/$file
+  if [ -f "$full_path" ]; then
+    cat $full_path
+  fi
+}
+
+desc "$@"
+
