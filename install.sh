@@ -21,7 +21,11 @@ ln -sFf ${BASEDIR}/.vim ~
 cd ${BASEDIR}/.vim
 git submodule update --init
 
+# Macos
 source ${BASEDIR}/.macos
+
+# Scripts
+ln -sfv ${BASEDIR}/scripts/* /usr/local/bin
 
 # TODO
 # Need lastpass
