@@ -128,3 +128,20 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:/Users/adamsam/Library/Python/2.7/bin" # for pipenv
 export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/opt/intel/compilers_and_libraries/mac/mkl/lib
 
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="$PATH:/usr/local/Caskroom/miniconda/base/bin"
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
+export PATH="$HOME/datomic-cli:$PATH"
+
+alias gcm='git commit -m'
+alias gamm='git commit --amend --no-edit'
+
+desc_() {
+  desc
+}
+
+if [[ ! " ${chpwd_functions[@]} " =~ " desc_ " ]]; then
+  chpwd_functions+=(desc_)
+fi
+
+
