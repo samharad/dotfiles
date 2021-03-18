@@ -146,5 +146,3 @@ fi
 
 
 autoload -Uz zpty
-
-mandom
