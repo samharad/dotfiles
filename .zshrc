@@ -145,3 +145,6 @@ if [[ ! " ${chpwd_functions[@]} " =~ " desc_ " ]]; then
 fi
 
 
+autoload -Uz zpty
+
+mandom

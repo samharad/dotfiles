@@ -25,6 +25,7 @@ git submodule update --init
 source ${BASEDIR}/.macos
 
 # Scripts
+chmod -R a+x scripts
 ln -sfv ${BASEDIR}/scripts/* /usr/local/bin
 
 # TODO

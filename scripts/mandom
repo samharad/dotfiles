@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+name=$(basename "$0")
+
+usage=$'
+
+Calls `man` on a random page.
+'
+
+help="$name $usage"
+
+mandom() {
+  while getopts "h" opt; do
+    case $opt in
+      h) echo "$help"
+         return 0
+    esac
+  done
+
+  page=$(tree -fi --noreport /usr/share/man | shuf  | head -n 1)
+  man "$page"
+}
+
+mandom "$@"
+
