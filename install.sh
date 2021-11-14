@@ -13,6 +13,12 @@ ln -sf ${BASEDIR}/.zshrc ~/.zshrc
 ln -sf ${BASEDIR}/.gitignore_global ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 
+# Macos
+source ${BASEDIR}/.macos
+
+# Scripts
+chmod -R a+x scripts
+
 # Vim
 ln -sf ${BASEDIR}/.vimrc ~/.vimrc
 # Because the second argument is a directory, ln will make a symlink
@@ -20,15 +26,3 @@ ln -sf ${BASEDIR}/.vimrc ~/.vimrc
 ln -sFf ${BASEDIR}/.vim ~
 cd ${BASEDIR}/.vim
 git submodule update --init
-
-# Macos
-source ${BASEDIR}/.macos
-
-# Scripts
-chmod -R a+x scripts
-ln -sfv ${BASEDIR}/scripts/* /usr/local/bin
-
-# TODO
-# Need lastpass
-# Need a bashrc to go with zshrc
-# Need same aliases
