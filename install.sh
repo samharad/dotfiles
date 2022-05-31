@@ -8,6 +8,7 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Zsh
 ln -sf ${BASEDIR}/.zshrc ~/.zshrc
+ln -sf ${BASEDIR}/samadams.zsh-theme ~/.oh-my-zsh/custom/themes/samadams.zsh-theme
 
 # Git
 ln -sf ${BASEDIR}/.gitignore_global ~/.gitignore_global
@@ -26,3 +27,6 @@ ln -sf ${BASEDIR}/.vimrc ~/.vimrc
 ln -sFf ${BASEDIR}/.vim ~
 cd ${BASEDIR}/.vim
 git submodule update --init
+
+# IdeaVim RC
+ln -sf ~/.vimrc ~/.ideavimrc

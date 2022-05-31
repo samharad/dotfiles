@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="samadams"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,7 +70,14 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git macos aliases)
+plugins=(
+  git
+  macos
+  # Helpful listing of aliases via 'asc'
+  aliases
+  direnv
+  virtualenv
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,6 +111,22 @@ desc_() {
   desc
 }
 
+
+
+# Function for getting the current AWS Amplify env, useful for custom prompt
+amplify_env () {
+  PROJECT_DIR=$(git rev-parse --show-toplevel 2>/dev/null)
+
+  ENV=$PROJECT_DIR/backend/amplify/.config/local-env-info.json
+
+  if [ -f "$ENV" ]; then
+    env_info=$(cat $ENV | jq -r ".envName")
+    echo "(🚀 $env_info) "
+  fi
+}
+
+
+
 # Disabling, since script is missing
 if [[ ! " ${chpwd_functions[@]} " =~ " desc_ " ]]; then
   chpwd_functions+=(desc_)
@@ -124,6 +147,9 @@ alias gcm='git commit -m'
 alias gam='git commit --amend'
 alias gamm='git commit --amend --no-edit'
 
+alias gre=$'git reflog | egrep -io "moving from ([^[:space:]]+)" | awk \'{ print $3 }\' | awk \' !x[$0]++\' | egrep -v \'^[a-f0-9]{40}$\' | head -n5'
+
+alias aliases=acs
 
 
 
@@ -134,9 +160,22 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Webpack issue workaround; see: https://github.com/webpack/webpack/issues/14532
-export NODE_OPTIONS=--openssl-legacy-provider
+# export NODE_OPTIONS=--openssl-legacy-provider
 
 
+# Put homebrew's bin, python3-unversioned-aliases-bin early on the path
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"
+
+# Ensure "pip install --user" packages are on the path
+export PATH="/Users/samadams/Library/Python/3.9/bin:$PATH"
 
 
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
+export PATH="/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+eval "$(rbenv init - zsh)"
