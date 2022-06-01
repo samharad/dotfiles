@@ -30,3 +30,6 @@ git submodule update --init
 
 # IdeaVim RC
 ln -sf ~/.vimrc ~/.ideavimrc
+
+# Brew
+source ${BASEDIR}/brew-once.sh
