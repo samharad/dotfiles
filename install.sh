@@ -33,3 +33,7 @@ ln -sf ~/.vimrc ~/.ideavimrc
 
 # Brew
 source ${BASEDIR}/brew-once.sh
+
+# Brew packages
+brew bundle
+
