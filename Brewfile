@@ -8,7 +8,7 @@ cask 'rectangle'
 cask 'jumpcut'
 
 # Firefox Dev Edition
-cask 'firefox-developer-edition'
+cask 'firefox@developer-edition'
 
 # IntelliJ
 cask 'intellij-idea'
