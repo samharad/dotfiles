@@ -1,7 +1,3 @@
-[submodule ".vim/bundle/VimCompletesMe"]
-	path = .vim/bundle/VimCompletesMe
-	url = https://github.com/ajh17/VimCompletesMe.git
-  ignore = dirty
 [submodule ".vim/bundle/auto-pairs"]
 	path = .vim/bundle/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
