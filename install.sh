@@ -31,11 +31,10 @@ ln -sf ${BASEDIR}/.vimrc ~/.vimrc
 # Because the second argument is a directory, ln will make a symlink
 # to .vim and place this link within the ~ directory
 ln -sFf ${BASEDIR}/.vim ~/.vim
-cd ${BASEDIR}/.vim
 echo "==> Vim: syncing submodules"
-git submodule sync
+(cd ${BASEDIR}/.vim && git submodule sync)
 echo "==> Vim: installing plugins"
-git submodule update --init
+(cd ${BASEDIR}/.vim && git submodule update --init)
 
 # IdeaVim RC
 echo "==> IdeaVim"
