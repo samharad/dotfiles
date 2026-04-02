@@ -38,3 +38,13 @@ source ${BASEDIR}/brew-once.sh
 # Brew packages
 brew bundle
 
+# Firefox extensions (via enterprise policy)
+FIREFOX_DIST="/Applications/Firefox Developer Edition.app/Contents/Resources/distribution"
+if [ -d "/Applications/Firefox Developer Edition.app" ]; then
+  mkdir -p "${FIREFOX_DIST}"
+  cp "${BASEDIR}/firefox-policies.json" "${FIREFOX_DIST}/policies.json"
+  echo "Firefox policies installed. Extensions will be added on next launch."
+else
+  echo "Firefox Developer Edition not found, skipping extension setup."
+fi
+
