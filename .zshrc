@@ -107,12 +107,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-desc_() {
-  desc
-}
-
-
-
 # Function for getting the current AWS Amplify env, useful for custom prompt
 amplify_env () {
   PROJECT_DIR=$(git rev-parse --show-toplevel 2>/dev/null)
@@ -126,11 +120,6 @@ amplify_env () {
 }
 
 
-
-# Disabling, since script is missing
-if [[ ! " ${chpwd_functions[@]} " =~ " desc_ " ]]; then
-  chpwd_functions+=(desc_)
-fi
 
 alias rm='safe-rm'
 
