@@ -16,6 +16,9 @@ cask 'intellij-idea'
 # GitHub
 brew 'gh'
 
+# Claude Code
+brew 'claude-code'
+
 # CLI tools
 brew 'bat'
 brew 'direnv'
