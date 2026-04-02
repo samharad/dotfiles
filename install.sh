@@ -46,7 +46,7 @@ source ${BASEDIR}/brew-once.sh
 
 # Brew packages
 echo "==> Homebrew packages"
-brew bundle
+brew bundle --verbose
 
 # Firefox extensions (via enterprise policy)
 echo "==> Firefox"
