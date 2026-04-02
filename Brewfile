@@ -27,6 +27,7 @@ brew 'fzf'
 brew 'jq'
 brew 'ripgrep'
 brew 'tldr'
+brew 'safe-rm'
 brew 'tree'
 
 # Apps
