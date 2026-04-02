@@ -27,6 +27,7 @@ ln -sf ${BASEDIR}/.vimrc ~/.vimrc
 # to .vim and place this link within the ~ directory
 ln -sFf ${BASEDIR}/.vim ~
 cd ${BASEDIR}/.vim
+git submodule sync
 git submodule update --init
 
 # IdeaVim RC
