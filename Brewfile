@@ -1,3 +1,6 @@
+# Ghostty
+cask 'ghostty'
+
 # Rectangle
 cask 'rectangle'
 

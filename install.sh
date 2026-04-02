@@ -17,8 +17,9 @@ git config --global core.excludesfile ~/.gitignore_global
 # Macos
 source ${BASEDIR}/.macos
 
-# Scripts
-chmod -R a+x scripts
+# Ghostty
+mkdir -p ~/.config/ghostty
+ln -sf ${BASEDIR}/ghostty-config ~/.config/ghostty/config
 
 # Vim
 ln -sf ${BASEDIR}/.vimrc ~/.vimrc
