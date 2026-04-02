@@ -165,10 +165,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # Put homebrew's bin, python3-unversioned-aliases-bin early on the path
 export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"
 
 # Ensure "pip install --user" packages are on the path
-export PATH="/Users/samadams/Library/Python/3.9/bin:$PATH"
 
 
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
@@ -179,3 +177,17 @@ export PATH="/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 eval "$(rbenv init - zsh)"
+
+. "$HOME/.local/bin/env"
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/Users/samadams/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)

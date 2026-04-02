@@ -14,6 +14,9 @@ cnoreabbrev W w
 cnoreabbrev Wq wq
 cnoreabbrev WQ wq
 
+" Makes softwrapped lines indent to align w/ parent line
+set breakindent
+
 " Display cat on open
 autocmd VimEnter * echo ">^.^<"
 
@@ -222,3 +225,4 @@ let g:tex_flavor='latex'
 
 " Fold on open
 " vim: set foldmarker={{{,}}} foldmethod=marker foldlevel=0 :
+
