@@ -17,7 +17,7 @@ cask 'intellij-idea'
 brew 'gh'
 
 # Claude Code
-brew 'claude-code'
+cask 'claude-code'
 
 # CLI tools
 brew 'bat'
