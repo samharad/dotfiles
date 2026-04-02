@@ -56,6 +56,12 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 12
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
 ##
+# Rectangle
+##
+
+defaults import com.knollsoft.Rectangle ${BASEDIR}/rectangle-defaults.plist
+
+##
 # Messages
 ##
 
