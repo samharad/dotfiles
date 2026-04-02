@@ -8,7 +8,6 @@ cask 'rectangle'
 cask 'jumpcut'
 
 # Firefox Dev Edition
-tap 'homebrew/cask-versions'
 cask 'firefox-developer-edition'
 
 # IntelliJ
