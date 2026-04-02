@@ -48,6 +48,10 @@ source ${BASEDIR}/brew-once.sh
 echo "==> Homebrew packages"
 brew bundle --verbose
 
+# Rectangle
+echo "==> Rectangle"
+defaults import com.knollsoft.Rectangle ${BASEDIR}/rectangle-defaults.plist
+
 # Firefox extensions (via enterprise policy)
 echo "==> Firefox"
 FIREFOX_DIST="/Applications/Firefox Developer Edition.app/Contents/Resources/distribution"
